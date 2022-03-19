@@ -8,7 +8,7 @@
               <h4 class="title">Giỏ hàng của bạn</h4>
             </md-card-header>
             <md-card-content>
-              <md-table v-model="users" :table-header-color="tableHeaderColor">
+              <md-table v-model="users">
                 <md-table-row slot="md-table-row" slot-scope="{ item }">
                   <md-table-cell md-label="Row Id">{{ item.id }}</md-table-cell>
                   <md-table-cell md-label="Sản phẩm">{{ item.product }}</md-table-cell>
@@ -26,7 +26,8 @@
           </md-card>
         </div>
         <div>
-          <md-button class="md-primary">Hủy</md-button>
+          <md-button class="md-danger">Hủy</md-button>
+          <md-button @click="addProduct()" class="md-primary">Thêm sản phẩm</md-button>
           <md-button class="md-success">Thanh Toán</md-button>
         </div>
       </div>
@@ -37,17 +38,25 @@
 <script>
 const axios = require('axios')
 export default {
-  name: "simple-table",
-  props: {
-    tableHeaderColor: {
-      type: String,
-      default: "",
-    },
-  },
+  name: "sheet-table",
   data() {
     return {
       selected: [],
-      users: []
+      users: [],
+      newdata: [
+        {
+          "id": "254",
+          "product": "Oxy",
+          "category": "Xtreme Admin",
+          "discount_code": "024680",
+          "classify": "B",
+          "total_product": 100,
+          "quantity": 2,
+          "price": 50000,
+          "total_prince": 100000,
+          "promotion": "Pending"
+        }
+      ]
     };
   },
   mounted() {
@@ -60,6 +69,19 @@ export default {
         console.log(error);
       })
   },
+
+  methods: {
+    addProduct() {
+      axios.post('https://sheetdb.io/api/v1/fmnmuqs7ss0wp', this.newdata)
+      .then(response => {
+        console.log(response);
+        location.reload();
+      })
+      .catch(error => {
+        console.log(error);
+      })
+    }
+  }
 };
 </script>
 
