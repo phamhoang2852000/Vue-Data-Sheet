@@ -8,12 +8,18 @@ import Notifications from "@/pages/Notifications.vue";
 import UpgradeToPRO from "@/pages/UpgradeToPRO.vue";
 import TableSheet from "@/pages/TableSheet.vue";
 import DataSheet from "@/pages/DataSheet.vue";
+import Dropdown from "@/pages/Dropdowns.vue";
 
 const routes = [
   {
     path: "/data-sheet",
     name: "Data Sheet",
     component: DataSheet,
+  },
+  {
+    path: "/drop-down",
+    name: "DropDown",
+    component: Dropdown,
   },
   {
     path: "/",
