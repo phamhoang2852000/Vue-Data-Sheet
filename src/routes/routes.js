@@ -7,12 +7,17 @@ import Icons from "@/pages/Icons.vue";
 import Notifications from "@/pages/Notifications.vue";
 import UpgradeToPRO from "@/pages/UpgradeToPRO.vue";
 import TableSheet from "@/pages/TableSheet.vue";
+import DataSheet from "@/pages/DataSheet.vue";
 
 const routes = [
   {
+    path: "/data-sheet",
+    name: "Data Sheet",
+    component: DataSheet,
+  },
+  {
     path: "/",
     component: DashboardLayout,
-    redirect: "/dashboard",
     children: [
       {
         path: "dashboard",
@@ -29,6 +34,7 @@ const routes = [
         name: "Table Sheet",
         component: TableSheet,
       },
+      
       {
         path: "typography",
         name: "Typography",
