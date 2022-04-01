@@ -8,7 +8,7 @@ import Notifications from "@/pages/Notifications.vue";
 import UpgradeToPRO from "@/pages/UpgradeToPRO.vue";
 import TableSheet from "@/pages/TableSheet.vue";
 import DataSheet from "@/pages/DataSheet.vue";
-import Dropdown from "@/pages/Dropdowns.vue";
+import Dropdowns from "@/pages/DropDowns.vue";
 
 const routes = [
   {
@@ -18,8 +18,8 @@ const routes = [
   },
   {
     path: "/drop-down",
-    name: "DropDown",
-    component: Dropdown,
+    name: "DropDowns",
+    component: Dropdowns,
   },
   {
     path: "/",

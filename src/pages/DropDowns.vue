@@ -1,21 +1,27 @@
 <template>
   <div>
-    <button @click="dropIt">Pet Options</button>
-  <transition name="slide">
-    <ul class="list" v-if="isDropped">
-      <li>Dog</li>
-      <li>Cat</li>
-      <li>Bunny</li>
-      <li>Parrot</li>
-      <li>Fish</li>
-    </ul>
-  </transition>
+  <ul class="main">
+    <li class="drop-down" @click="mouseover">
+      <span>TranslateY</span>
+      <ul v-if="isDropped" class="drop-down-menu">
+        <li class="drop-down-menu-item">A</li>
+        <li class="drop-down-menu-item">A</li>
+        <li class="drop-down-menu-item">A</li>
+        <li class="drop-down-menu-item">A</li>
+        <li class="drop-down-menu-item">A</li>
+      </ul>
+    </li>
+    <li class="drop-down">RotateX</li>
+    <li class="drop-down">TranslateZ</li>
+    <li class="drop-down">Scale</li>
+    <li class="drop-down">TranslateX</li>
+  </ul>
   </div>
 </template>
 
 <script>
 export default {
-    name: "dropdown",
+    name: "dropdowns",
     data() {
         return {
             isDropped: false,
@@ -23,15 +29,52 @@ export default {
     },
 
     methods: {
-        dropIt() {
-            this.isDropped = !this.isDropped
-        }
+        mouseover() {
+            this.isDropped = !this.isDropped;
+        },
     }
 }
 </script>
 
-<style>
-html{ display: grid; height: 100% }
+<style lang="scss">
+.main {
+  list-style-type: none;
+  display: flex;
+  background-color: #2f465e;
+  height: 60px;
+  width: 60%;
+  line-height: 60px;
+  color: #FFFFFF;
+  font-size: 16px;
+  font-weight: 400px;
+  justify-content: space-between;
+}
+.main .drop-down {
+  width: 100%;
+  text-align: center;
+}
+
+.drop-down:hover {
+  background-color: #191D4D;
+  cursor: pointer;
+}
+
+.drop-down-menu {
+  width: 100%;
+  margin: 0px;
+  padding: 0px;
+  transition: all .5s ease;
+}
+.drop-down-menu .drop-down-menu-item {
+  width: 100%;
+  background-color: #2f465e;
+}
+
+
+.drop-down-menu .drop-down-menu-item:hover {
+  background-color: #191D4D;
+}
+/* html{ display: grid; height: 100% }
 body{
   margin: auto;
   background: linear-gradient(#5e2973, #692424);
@@ -64,5 +107,5 @@ button:focus{
     background: white;
     border-bottom: solid thin #eee;
     border-left: solid medium #cbc;
-  }
+  } */
 </style>
