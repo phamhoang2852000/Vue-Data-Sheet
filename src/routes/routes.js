@@ -9,12 +9,18 @@ import UpgradeToPRO from "@/pages/UpgradeToPRO.vue";
 import TableSheet from "@/pages/TableSheet.vue";
 import DataSheet from "@/pages/DataSheet.vue";
 import Dropdowns from "@/pages/DropDowns.vue";
+import BufFile from "@/pages/BufFile.vue";
 
 const routes = [
   {
     path: "/data-sheet",
     name: "Data Sheet",
     component: DataSheet,
+  },
+  {
+    path: "/buf-file",
+    name: "Buf File",
+    component: BufFile,
   },
   {
     path: "/drop-down",
